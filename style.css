@@ -17,13 +17,12 @@ body {
     padding: 0 25px;
 }
 
-/* Структура с вертикальным меню */
 .app-wrapper {
     display: flex;
     min-height: 100vh;
 }
 
-/* Боковое меню */
+/* Сайдбар */
 .sidebar {
     width: 280px;
     background: linear-gradient(180deg, #004d40 0%, #00695c 100%);
@@ -31,7 +30,6 @@ body {
     position: fixed;
     height: 100vh;
     overflow-y: auto;
-    box-shadow: 4px 0 20px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
 }
@@ -40,18 +38,12 @@ body {
     padding: 30px 20px;
     text-align: center;
     border-bottom: 1px solid rgba(255,255,255,0.15);
-    margin-bottom: 20px;
 }
 
 .logo-sidebar h1 {
     font-size: 26px;
     color: #ffd700;
     margin-bottom: 8px;
-}
-
-.logo-sidebar p {
-    font-size: 12px;
-    opacity: 0.8;
 }
 
 .nav-vertical {
@@ -71,54 +63,16 @@ body {
     text-decoration: none;
     border-radius: 12px;
     transition: all 0.3s;
-    font-weight: 500;
 }
 
-.nav-link:hover {
-    background: rgba(255,255,255,0.1);
-    color: white;
-}
-
-.nav-link.active {
+.nav-link:hover, .nav-link.active {
     background: #ffd700;
     color: #004d40;
-}
-
-.nav-icon {
-    font-size: 20px;
 }
 
 .sidebar-footer {
     padding: 20px;
     border-top: 1px solid rgba(255,255,255,0.1);
-    margin-top: auto;
-}
-
-.sidebar-user {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.logout-link {
-    color: #ffd700;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-.logout-link:hover {
-    text-decoration: underline;
-}
-
-.sidebar-phone, .sidebar-email {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 0;
-    font-size: 14px;
 }
 
 .sidebar-phone a, .sidebar-email a {
@@ -126,21 +80,16 @@ body {
     text-decoration: none;
 }
 
-.sidebar-phone a:hover, .sidebar-email a:hover {
-    color: #ffd700;
-}
-
-/* Основной контент */
 .main-content {
     flex: 1;
     margin-left: 280px;
 }
 
-/* Hero секция */
+/* Hero */
 .hero {
     background: linear-gradient(135deg, #004d40 0%, #00695c 100%);
     color: white;
-    padding: 70px 0;
+    padding: 60px 0;
 }
 
 .hero-content {
@@ -153,22 +102,16 @@ body {
 .hero-text h1 {
     font-size: 44px;
     margin-bottom: 20px;
-    line-height: 1.2;
 }
 
 .highlight {
     color: #ffd700;
 }
 
-.hero-text p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    opacity: 0.9;
-}
-
 .hero-buttons {
     display: flex;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .btn-primary, .btn-secondary {
@@ -177,7 +120,6 @@ body {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s;
     border: none;
 }
 
@@ -186,19 +128,10 @@ body {
     color: #004d40;
 }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-}
-
 .btn-secondary {
     background: transparent;
     border: 2px solid white;
     color: white;
-}
-
-.btn-secondary:hover {
-    background: rgba(255,255,255,0.1);
 }
 
 .hero-stats {
@@ -215,29 +148,17 @@ body {
     font-weight: 700;
 }
 
-.stat-label {
-    font-size: 14px;
-    opacity: 0.8;
+/* Калькулятор */
+.calculator-section {
+    padding: 60px 0;
+    background: #f5f7fb;
 }
 
-/* Секции */
 .section-title {
     text-align: center;
     font-size: 34px;
     margin-bottom: 15px;
     color: #004d40;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: #666;
-    margin-bottom: 40px;
-}
-
-/* Калькулятор */
-.calculator-section {
-    padding: 60px 0;
-    background: #f5f7fb;
 }
 
 .calculator-container {
@@ -247,7 +168,6 @@ body {
     background: white;
     border-radius: 24px;
     padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .form-group {
@@ -258,7 +178,6 @@ body {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: #333;
 }
 
 .form-group select, .form-group input[type="range"] {
@@ -266,17 +185,11 @@ body {
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    font-size: 16px;
 }
 
 .checkbox {
     display: block;
     margin: 10px 0;
-    cursor: pointer;
-}
-
-.checkbox input {
-    margin-right: 10px;
 }
 
 .calculator-result {
@@ -287,24 +200,10 @@ body {
     text-align: center;
 }
 
-.result-price {
-    margin-bottom: 30px;
-}
-
-.result-label {
-    font-size: 18px;
-    opacity: 0.9;
-}
-
 .result-value {
     font-size: 48px;
     font-weight: 700;
     margin: 10px 0;
-}
-
-.result-note {
-    font-size: 12px;
-    opacity: 0.7;
 }
 
 .btn-block {
@@ -329,11 +228,6 @@ body {
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
 }
 
 .feature-icon {
@@ -351,35 +245,18 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 40px;
 }
 
 .review-card {
     background: white;
     padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.review-text {
-    font-style: italic;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.review-author {
-    color: #00695c;
-    font-weight: 600;
-}
-
-/* Форма заявки */
+/* Форма */
 .order-form {
     padding: 60px 0;
     background: linear-gradient(135deg, #004d40 0%, #00695c 100%);
-    color: white;
-}
-
-.order-form .section-title, .order-form .section-subtitle {
     color: white;
 }
 
@@ -389,7 +266,6 @@ body {
     background: rgba(255,255,255,0.1);
     padding: 35px;
     border-radius: 24px;
-    backdrop-filter: blur(10px);
 }
 
 .form-row {
@@ -402,19 +278,136 @@ body {
 .form input, .form select, .form textarea {
     width: 100%;
     padding: 14px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.95);
     border-radius: 12px;
-    font-size: 16px;
+    border: none;
 }
 
-.form textarea {
-    resize: vertical;
+/* Админ-панель */
+.admin-auth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
 
-.btn-submit {
+.admin-login-card {
+    background: #1a1a2e;
+    border-radius: 24px;
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    border: 1px solid #ffd700;
+}
+
+.admin-login-card input {
     width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    background: #2a2a3e;
+    color: white;
+}
+
+.admin-login-card button {
+    margin: 5px;
+    padding: 10px 20px;
+}
+
+.demo-hint {
     margin-top: 15px;
+    font-size: 12px;
+    color: #888;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.admin-tab {
+    background: #1a1a2e;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.admin-tab.active {
+    background: #ffd700;
+    color: #004d40;
+}
+
+.stats-cards-admin {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card-admin {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.stat-card-admin .number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #00695c;
+}
+
+.leads-list {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.lead-item {
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.lead-status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    background: #e74c3c;
+    color: white;
+}
+
+.lead-status.processed {
+    background: #27ae60;
+}
+
+.btn-small {
+    background: #00695c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 /* Футер */
@@ -430,45 +423,56 @@ body {
     gap: 40px;
 }
 
-.footer h3, .footer h4 {
-    color: white;
-    margin-bottom: 15px;
+/* Адаптив */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+    .sidebar .logo-sidebar h1, .sidebar .logo-sidebar p, .sidebar .nav-link span:last-child {
+        display: none;
+    }
+    .sidebar .nav-link {
+        justify-content: center;
+        padding: 12px;
+    }
+    .main-content {
+        margin-left: 70px;
+    }
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .calculator-container, .features-grid, .reviews-slider {
+        grid-template-columns: 1fr;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .stats-cards-admin {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.footer a {
-    color: #aaa;
-    text-decoration: none;
-    display: block;
-    margin: 10px 0;
-}
-
-.footer a:hover {
-    color: #ffd700;
-}
-
-/* Страница услуг */
+/* Услуги */
 .services-page {
     padding: 60px 0;
-    background: #f5f7fb;
 }
 
 .services-grid-page {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 40px;
 }
 
-.service-card-full {
+.service-card {
     background: white;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s;
-}
-
-.service-card-full:hover {
-    transform: translateY(-5px);
 }
 
 .service-header {
@@ -476,9 +480,6 @@ body {
     color: white;
     padding: 20px;
     text-align: center;
-}
-
-.service-header h3 {
     font-size: 22px;
 }
 
@@ -487,63 +488,43 @@ body {
 }
 
 .service-price {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 700;
     color: #00695c;
-    margin: 15px 0;
+    margin-bottom: 15px;
 }
 
-.service-list {
+.service-body ul {
     list-style: none;
     padding: 0;
 }
 
-.service-list li {
+.service-body li {
     padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
 
-.service-list li:before {
-    content: "✓";
-    color: #00695c;
-    margin-right: 10px;
-    font-weight: bold;
-}
-
 .btn-order {
-    display: block;
-    text-align: center;
-    background: #ffd700;
-    color: #004d40;
+    width: 100%;
     padding: 12px;
+    background: #ffd700;
+    border: none;
     border-radius: 10px;
-    text-decoration: none;
+    margin-top: 15px;
+    cursor: pointer;
     font-weight: 600;
-    margin-top: 20px;
 }
 
-/* Страница "О компании" */
+/* О компании */
 .about-page {
     padding: 60px 0;
-    background: #f5f7fb;
 }
 
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
-    align-items: center;
     margin-bottom: 50px;
-}
-
-.about-text h2 {
-    color: #00695c;
-    margin-bottom: 20px;
-}
-
-.about-text p {
-    margin-bottom: 15px;
-    line-height: 1.8;
 }
 
 .about-card {
@@ -555,16 +536,15 @@ body {
 }
 
 .about-icon {
-    font-size: 70px;
+    font-size: 60px;
     display: block;
     margin-bottom: 20px;
 }
 
 .numbers-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    margin: 50px 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
 .number-item {
@@ -572,7 +552,6 @@ body {
     padding: 30px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .number-item .number {
@@ -581,106 +560,22 @@ body {
     color: #00695c;
 }
 
-.mission-box {
-    background: #004d40;
-    color: white;
-    padding: 40px;
-    border-radius: 24px;
-    text-align: center;
-    margin: 40px 0;
-}
-
-.mission-box p {
-    font-size: 20px;
-    font-style: italic;
-}
-
-.mission-author {
-    margin-top: 15px;
-    font-size: 16px !important;
-    opacity: 0.8;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.team-card {
-    background: white;
-    text-align: center;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.team-icon {
-    font-size: 55px;
-    margin-bottom: 15px;
-}
-
-.team-card h4 {
-    color: #00695c;
-    margin: 10px 0 5px;
-}
-
-/* Страница контактов */
+/* Контакты */
 .contacts-page {
     padding: 60px 0;
-    background: #f5f7fb;
 }
 
 .contacts-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 40px;
 }
 
 .contact-card {
     background: white;
-    padding: 30px;
     border-radius: 20px;
+    padding: 30px;
     margin-bottom: 25px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.contact-card h3 {
-    color: #00695c;
-    margin-bottom: 20px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.contact-icon {
-    font-size: 24px;
-}
-
-.contact-item a {
-    color: #00695c;
-    text-decoration: none;
-}
-
-.subway-station {
-    background: #f5f5f5;
-    border-radius: 12px;
-    padding: 15px;
-    margin: 15px 0;
-}
-
-.work-hours table {
-    width: 100%;
-}
-
-.work-hours td {
-    padding: 8px;
 }
 
 .map-placeholder {
@@ -691,89 +586,16 @@ body {
     color: white;
 }
 
-.map-icon {
-    font-size: 60px;
-    margin-bottom: 15px;
-}
-
-.map-info {
+.settings-card {
     background: white;
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 20px;
-    color: #333;
+    border-radius: 20px;
+    padding: 30px;
 }
 
-/* Адаптивность */
-@media (max-width: 1024px) {
-    .sidebar {
-        width: 240px;
-    }
-    .main-content {
-        margin-left: 240px;
-    }
-    .features-grid,
-    .services-grid-page,
-    .reviews-slider {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .sidebar {
-        width: 70px;
-    }
-    .sidebar .logo-sidebar h1,
-    .sidebar .logo-sidebar p,
-    .sidebar .nav-link span:last-child,
-    .sidebar-footer .sidebar-phone span:last-child,
-    .sidebar-footer .sidebar-email span:last-child,
-    .sidebar-user span:first-child {
-        display: none;
-    }
-    .sidebar .nav-link {
-        justify-content: center;
-        padding: 12px;
-    }
-    .sidebar .nav-icon {
-        font-size: 24px;
-    }
-    .sidebar-user {
-        justify-content: center;
-    }
-    .sidebar-phone, .sidebar-email {
-        justify-content: center;
-    }
-    .main-content {
-        margin-left: 70px;
-    }
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-buttons {
-        justify-content: center;
-    }
-    .hero-stats {
-        justify-content: center;
-    }
-    .calculator-container,
-    .about-grid,
-    .contacts-grid {
-        grid-template-columns: 1fr;
-    }
-    .features-grid,
-    .services-grid-page,
-    .reviews-slider,
-    .numbers-grid,
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
+.settings-card input, .settings-card textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
 }
