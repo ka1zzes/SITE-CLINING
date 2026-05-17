@@ -599,3 +599,72 @@ body {
     border: 1px solid #ddd;
     border-radius: 10px;
 }
+/* Админ-панель — исправленные стили */
+.admin-auth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.admin-login-card {
+    background: #1a1a2e;
+    border-radius: 24px;
+    padding: 40px;
+    width: 360px;
+    text-align: center;
+    border: 1px solid #ffd700;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.admin-login-card .auth-logo {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.admin-login-card h2 {
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.admin-login-card p {
+    color: #aaa;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.admin-input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #333;
+    background: #0a0a1a;
+    color: white;
+    font-size: 16px;
+}
+
+.admin-input:focus {
+    outline: none;
+    border-color: #ffd700;
+}
+
+.admin-login-card .btn-primary,
+.admin-login-card .btn-secondary {
+    width: 100%;
+    margin: 8px 0;
+}
+
+.demo-hint {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+}
