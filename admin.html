@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель | Чистый Град</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .admin-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .admin-stat-card {
+            background: linear-gradient(135deg, #00695c, #00897b);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        .admin-stat-number {
+            font-size: 48px;
+            font-weight: 700;
+        }
+        .admin-lead-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #ffc107;
+        }
+        .lead-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .lead-name {
+            font-weight: 700;
+            font-size: 18px;
+            color: #00695c;
+        }
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status-new {
+            background: #e74c3c;
+            color: white;
+        }
+        .status-processed {
+            background: #27ae60;
+            color: white;
+        }
+        .lead-message {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .lead-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #888;
+        }
+        .process-btn {
+            background: #00695c;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .process-btn:hover {
+            background: #004d40;
+        }
+        .empty-leads {
+            text-align: center;
+            padding: 60px;
+            background: white;
+            border-radius: 20px;
+            color: #999;
+        }
+        .logout-admin {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="logo-sidebar">
+                <h1>🧹 Чистый Град</h1>
+                <p>Админ-панель</p>
+            </div>
+            <nav class="nav-vertical">
+                <a href="index.html" class="nav-link">
+                    <span class="nav-icon">🏠</span>
+                    <span>На сайт</span>
+                </a>
+                <a href="admin.html" class="nav-link active">
+                    <span class="nav-icon">📊</span>
+                    <span>Заявки</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user" id="adminUserInfo">
+                    <span id="adminName">👤 admin</span>
+                    <button onclick="logout()" class="logout-link" style="background:none;border:none;color:#ffd700;cursor:pointer;">🚪 Выйти</button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="container">
+                <div class="admin-header">
+                    <h1>📊 Панель управления</h1>
+                </div>
+                
+                <div id="adminStats" class="admin-stats-grid"></div>
+                
+                <h2 style="margin-bottom: 20px;">📋 Список заявок</h2>
+                <div id="leadsContainer"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function checkAdminAuth() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn !== 'true') {
+                window.location.href = 'login.html';
+            }
+        }
+        
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('username');
+            window.location.href = 'login.html';
+        }
+        
+        function getLeads() {
+            return JSON.parse(localStorage.getItem('cleaningLeads') || '[]');
+        }
+
+        function saveLeads(leads) {
+            localStorage.setItem('cleaningLeads', JSON.stringify(leads));
+        }
+
+        function loadAdminStats() {
+            const statsContainer = document.getElementById('adminStats');
+            if (!statsContainer) return;
+            
+            const leads = getLeads();
+            const total = leads.length;
+            const newLeads = leads.filter(l => l.status === 'new').length;
+            const processed = leads.filter(l => l.status === 'processed').length;
+            
+            statsContainer.innerHTML = `
+                <div class="admin-stat-card">
+                    <div class="admin-stat-number">${total}</div>
+                    <div>Всего заявок</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-number">${newLeads}</div>
+                    <div>Новых</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-number">${processed}</div>
+                    <div>Обработано</div>
+                </div>
+            `;
+        }
+
+        function loadAdminLeads() {
+            const container = document.getElementById('leadsContainer');
+            if (!container) return;
+            
+            const leads = getLeads();
+            
+            if (leads.length === 0) {
+                container.innerHTML = '<div class="empty-leads">📭 Пока нет ни одной заявки</div>';
+                return;
+            }
+            
+            container.innerHTML = leads.slice().reverse().map(lead => `
+                <div class="admin-lead-card">
+                    <div class="lead-header">
+                        <div>
+                            <span class="lead-name">${escapeHtml(lead.name)}</span>
+                            <span> — ${escapeHtml(lead.phone)}</span>
+                        </div>
+                        <span class="status-badge ${lead.status === 'new' ? 'status-new' : 'status-processed'}">
+                            ${lead.status === 'new' ? '🆕 Новая' : '✅ Обработана'}
+                        </span>
+                    </div>
+                    <div class="lead-message">${escapeHtml(lead.message || 'Без дополнительной информации')}</div>
+                    <div class="lead-footer">
+                        <span>📅 ${lead.date}</span>
+                        ${lead.status === 'new' ? `<button class="process-btn" onclick="markLeadProcessed(${lead.id})">✓ Отметить обработанной</button>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function markLeadProcessed(id) {
+            const leads = getLeads();
+            const index = leads.findIndex(l => l.id === id);
+            if (index !== -1) {
+                leads[index].status = 'processed';
+                saveLeads(leads);
+                loadAdminStats();
+                loadAdminLeads();
+            }
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        checkAdminAuth();
+        loadAdminStats();
+        loadAdminLeads();
+    </script>
+</body>
+</html>

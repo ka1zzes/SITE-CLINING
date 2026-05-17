@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чистый Град | Профессиональная уборка в Нижнем Новгороде</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="logo-sidebar">
+                <h1>🧹 Чистый Град</h1>
+                <p>Профессиональная уборка</p>
+            </div>
+            <nav class="nav-vertical">
+                <a href="index.html" class="nav-link active">
+                    <span class="nav-icon">🏠</span>
+                    <span>Главная</span>
+                </a>
+                <a href="services.html" class="nav-link">
+                    <span class="nav-icon">🧼</span>
+                    <span>Услуги</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <span class="nav-icon">📖</span>
+                    <span>О компании</span>
+                </a>
+                <a href="contacts.html" class="nav-link">
+                    <span class="nav-icon">📍</span>
+                    <span>Контакты</span>
+                </a>
+                <a href="admin.html" class="nav-link">
+                    <span class="nav-icon">👨‍💼</span>
+                    <span>Админ-панель</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user" id="userInfo">
+                    <span id="userName">👤 гость</span>
+                    <a href="login.html" id="authLink" class="logout-link">🔐 Войти</a>
+                </div>
+                <div class="sidebar-phone">
+                    <span>📞</span>
+                    <a href="tel:+78312345678">+7 (831) 234-56-78</a>
+                </div>
+                <div class="sidebar-email">
+                    <span>✉️</span>
+                    <a href="mailto:info@chistygrad.ru">info@chistygrad.ru</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>Чистота, которая <span class="highlight">работает на вас</span></h1>
+                            <p>Профессиональный клининг для квартир, домов и офисов в Нижнем Новгороде. Гарантия качества, современное оборудование, безопасные средства.</p>
+                            <div class="hero-buttons">
+                                <button class="btn-primary" onclick="document.getElementById('calculator').scrollIntoView({behavior: 'smooth'})">Рассчитать стоимость</button>
+                                <button class="btn-secondary" onclick="openOrderForm()">Оставить заявку</button>
+                            </div>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <div class="stat-number">300+</div>
+                                <div class="stat-label">Довольных клиентов</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">10</div>
+                                <div class="stat-label">Лет на рынке</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Поддержка</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="calculator" class="calculator-section">
+                <div class="container">
+                    <h2 class="section-title">📊 Калькулятор стоимости уборки</h2>
+                    <p class="section-subtitle">Укажите параметры помещения — мы рассчитаем точную стоимость</p>
+                    
+                    <div class="calculator-container">
+                        <div class="calculator-form">
+                            <div class="form-group">
+                                <label>Тип помещения</label>
+                                <select id="roomType">
+                                    <option value="apartment">Квартира</option>
+                                    <option value="house">Частный дом / Коттедж</option>
+                                    <option value="office">Офис</option>
+                                    <option value="commercial">Коммерческое помещение</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Площадь (м²): <span id="areaValue">50</span> м²</label>
+                                <input type="range" id="area" min="20" max="500" value="50" step="5">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Тип уборки</label>
+                                <select id="cleaningType">
+                                    <option value="standard">Стандартная (поддерживающая)</option>
+                                    <option value="general">Генеральная уборка</option>
+                                    <option value="afterrenovation">После ремонта / строительства</option>
+                                    <option value="office">Офисная (ежедневная)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Дополнительные услуги:</label>
+                                <label class="checkbox">
+                                    <input type="checkbox" id="windows"> Мытье окон (+₽500)
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" id="carpet"> Химчистка ковров/мебели (+₽150/м²)
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" id="fridge"> Мытье холодильника (+₽300)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="calculator-result">
+                            <div class="result-price">
+                                <div class="result-label">Итого стоимость:</div>
+                                <div class="result-value" id="totalPrice">0 ₽</div>
+                                <div class="result-note">* Включая материалы и выезд бригады</div>
+                            </div>
+                            <button class="btn-primary btn-block" onclick="sendOrderFromCalculator()">Заказать по этой цене</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <h2 class="section-title">Почему выбирают нас</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">✅</div>
+                            <h3>Гарантия качества</h3>
+                            <p>Если вам что-то не понравится — переделаем бесплатно</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Выезд за 30 минут</h3>
+                            <p>Срочная уборка в день обращения</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔒</div>
+                            <h3>Безопасные средства</h3>
+                            <p>Эко-средства, безопасные для детей и животных</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📋</div>
+                            <h3>Официальный договор</h3>
+                            <p>Работаем с юрлицами и ИП</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="reviews">
+                <div class="container">
+                    <h2 class="section-title">Отзывы наших клиентов</h2>
+                    <div class="reviews-slider">
+                        <div class="review-card">
+                            <div class="review-text">"Отличная компания! Убирали офис после переезда — всё идеально."</div>
+                            <div class="review-author">— Александр, ООО "СтройИнвест"</div>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-text">"Заказывал генеральную уборку квартиры. Результат — как после ремонта!"</div>
+                            <div class="review-author">— Екатерина, Нижний Новгород</div>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-text">"Всегда чисто, персонал вежливый. Отличное соотношение цены и качества."</div>
+                            <div class="review-author">— Михаил, УК "Центральная"</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="order-form">
+                <div class="container">
+                    <h2 class="section-title">Оставьте заявку на бесплатный расчет</h2>
+                    <form id="mainOrderForm" class="form">
+                        <div class="form-row">
+                            <input type="text" placeholder="Ваше имя" id="name" required>
+                            <input type="tel" placeholder="Телефон" id="phone" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="email" placeholder="Email">
+                            <select id="serviceType">
+                                <option value="">Выберите услугу</option>
+                                <option>Уборка квартиры</option>
+                                <option>Уборка офиса</option>
+                                <option>Уборка коттеджа</option>
+                                <option>Химчистка</option>
+                            </select>
+                        </div>
+                        <textarea placeholder="Дополнительная информация (площадь, особенности...)" rows="3"></textarea>
+                        <button type="submit" class="btn-primary btn-submit">Отправить заявку</button>
+                    </form>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-info">
+                            <h3>🧹 Чистый Град</h3>
+                            <p>Профессиональная уборка с 2014 года</p>
+                        </div>
+                        <div class="footer-links">
+                            <h4>Быстрые ссылки</h4>
+                            <a href="services.html">Услуги</a>
+                            <a href="about.html">О компании</a>
+                            <a href="contacts.html">Контакты</a>
+                        </div>
+                        <div class="footer-contacts">
+                            <h4>Контакты</h4>
+                            <p>📞 +7 (831) 234-56-78</p>
+                            <p>✉ info@chistygrad.ru</p>
+                            <p>📍 г. Нижний Новгород, ул. Большая Покровская, 48</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Проверка авторизации для главной страницы
+        checkAuthAndRedirect();
+    </script>
+</body>
+</html>

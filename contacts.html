@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты | Чистый Град</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="logo-sidebar">
+                <h1>🧹 Чистый Град</h1>
+                <p>Профессиональная уборка</p>
+            </div>
+            <nav class="nav-vertical">
+                <a href="index.html" class="nav-link">
+                    <span class="nav-icon">🏠</span>
+                    <span>Главная</span>
+                </a>
+                <a href="services.html" class="nav-link">
+                    <span class="nav-icon">🧼</span>
+                    <span>Услуги</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <span class="nav-icon">📖</span>
+                    <span>О компании</span>
+                </a>
+                <a href="contacts.html" class="nav-link active">
+                    <span class="nav-icon">📍</span>
+                    <span>Контакты</span>
+                </a>
+                <a href="admin.html" class="nav-link">
+                    <span class="nav-icon">👨‍💼</span>
+                    <span>Админ-панель</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user" id="userInfo">
+                    <span id="userName">👤 гость</span>
+                    <a href="login.html" id="authLink" class="logout-link">🔐 Войти</a>
+                </div>
+                <div class="sidebar-phone">
+                    <span>📞</span>
+                    <a href="tel:+78312345678">+7 (831) 234-56-78</a>
+                </div>
+                <div class="sidebar-email">
+                    <span>✉️</span>
+                    <a href="mailto:info@chistygrad.ru">info@chistygrad.ru</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="contacts-page">
+                <div class="container">
+                    <h1 class="section-title">Контакты</h1>
+                    <p class="section-subtitle">Свяжитесь с нами любым удобным способом</p>
+                    
+                    <div class="contacts-grid">
+                        <div>
+                            <div class="contact-card">
+                                <h3>📞 Свяжитесь с нами</h3>
+                                <div class="contact-item">
+                                    <span class="contact-icon">📱</span>
+                                    <div><strong>Телефон</strong><br><a href="tel:+78312345678">+7 (831) 234-56-78</a></div>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">✉️</span>
+                                    <div><strong>Email</strong><br><a href="mailto:info@chistygrad.ru">info@chistygrad.ru</a></div>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">💬</span>
+                                    <div><strong>WhatsApp / Telegram</strong><br><a href="https://wa.me/78312345678">+7 (831) 234-56-78</a></div>
+                                </div>
+                            </div>
+
+                            <div class="contact-card">
+                                <h3>📍 Адрес</h3>
+                                <div class="contact-item">
+                                    <span class="contact-icon">🏢</span>
+                                    <div>г. Нижний Новгород, ул. Большая Покровская, дом 48, офис 12</div>
+                                </div>
+                                <div class="subway-station">
+                                    🚇 <strong>Метро:</strong> Горьковская — 5 минут пешком
+                                </div>
+                                <div class="subway-station">
+                                    🚌 <strong>Общественный транспорт:</strong> ост. "Большая Покровская"
+                                </div>
+                            </div>
+
+                            <div class="contact-card">
+                                <h3>⏰ Режим работы</h3>
+                                <div class="work-hours">
+                                    <table>
+                                        <tr><td>Пн - Пт:</td><td>8:00 - 22:00</td></tr>
+                                        <tr><td>Суббота:</td><td>9:00 - 20:00</td></tr>
+                                        <tr><td>Воскресенье:</td><td>10:00 - 18:00</td></tr>
+                                        <tr><td>Заявки онлайн:</td><td>24/7</td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="map-placeholder">
+                                <div class="map-icon">🗺️</div>
+                                <h3>Карта проезда</h3>
+                                <p>ул. Большая Покровская, 48, Нижний Новгород</p>
+                                <div class="map-info">
+                                    <p>📍 Ориентир: ТЦ "Покровский пассаж"</p>
+                                    <p>🚗 Парковка: гостевые места во дворе</p>
+                                    <p>♿ Доступно для маломобильных граждан</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-info">
+                            <h3>🧹 Чистый Град</h3>
+                            <p>Профессиональная уборка с 2014 года</p>
+                        </div>
+                        <div class="footer-links">
+                            <h4>Быстрые ссылки</h4>
+                            <a href="services.html">Услуги</a>
+                            <a href="about.html">О компании</a>
+                            <a href="contacts.html">Контакты</a>
+                        </div>
+                        <div class="footer-contacts">
+                            <h4>Контакты</h4>
+                            <p>📞 +7 (831) 234-56-78</p>
+                            <p>✉ info@chistygrad.ru</p>
+                            <p>📍 г. Нижний Новгород, ул. Большая Покровская, 48</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
