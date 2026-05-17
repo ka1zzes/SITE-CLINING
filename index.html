@@ -197,7 +197,7 @@
             </section>
         </div>
 
-                <!-- АДМИН-ПАНЕЛЬ (с авторизацией) -->
+        <!-- АДМИН-ПАНЕЛЬ (с авторизацией) -->
         <div id="page-admin" style="display: none;">
             <div class="admin-auth-overlay" id="adminAuthOverlay">
                 <div class="admin-login-card">
@@ -211,6 +211,30 @@
                     <div class="demo-hint">demo / demo123</div>
                 </div>
             </div>
+
+            <div id="adminPanelContent" style="display: none;">
+                <div class="admin-header">
+                    <h1>📊 Панель управления</h1>
+                    <button class="btn-secondary" onclick="logoutFromAdmin()">🚪 Выйти</button>
+                </div>
+                <div class="admin-tabs">
+                    <button class="admin-tab active" onclick="switchAdminTab('stats')">📊 Заявки</button>
+                    <button class="admin-tab" onclick="switchAdminTab('settings')">⚙️ Настройки</button>
+                </div>
+                <div id="adminTabStats" class="admin-tab-content">
+                    <div class="stats-cards-admin" id="adminStats"></div>
+                    <div class="leads-list" id="leadsList"></div>
+                </div>
+                <div id="adminTabSettings" class="admin-tab-content" style="display: none;">
+                    <div class="settings-card">
+                        <h3>О компании</h3>
+                        <input type="text" id="companyName" placeholder="Название компании">
+                        <textarea id="companyDesc" placeholder="Описание"></textarea>
+                        <button class="btn-primary" onclick="saveSettings()">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
             <div id="adminPanelContent" style="display: none;">
                 <div class="admin-header">
