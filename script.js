@@ -1,6 +1,4 @@
 // Данные для входа в админку
-const ADMIN_USER = { username: 'demo', password: 'demo123' };
-
 let currentAdmin = null;
 let orders = JSON.parse(localStorage.getItem('cleaningOrders') || '[]');
 
@@ -32,7 +30,7 @@ function showPage(page) {
     }
 }
 
-// ========== АДМИН-ПАНЕЛЬ (ИСПРАВЛЕННАЯ) ==========
+// ========== АДМИН-ПАНЕЛЬ ==========
 function loginToAdmin() {
     const username = document.getElementById('adminUsername').value;
     const password = document.getElementById('adminPassword').value;
@@ -65,21 +63,16 @@ function logoutFromAdmin() {
     showPage('main');
 }
 
-function closeAdminLogin() {
-    const overlay = document.getElementById('adminAuthOverlay');
-    const panel = document.getElementById('adminPanelContent');
-    if (overlay) overlay.style.display = 'flex';
-    if (panel) panel.style.display = 'none';
-    showPage('main');
-}
-
-function logoutFromAdmin() {
-    currentAdmin = null;
-    const overlay = document.getElementById('adminAuthOverlay');
-    const panel = document.getElementById('adminPanelContent');
-    if (overlay) overlay.style.display = 'flex';
-    if (panel) panel.style.display = 'none';
-    showPage('main');
+function switchAdminTab(tabName) {
+    const statsTab = document.getElementById('adminTabStats');
+    const tabs = document.querySelectorAll('.admin-tab');
+    
+    if (tabName === 'stats') {
+        if (statsTab) statsTab.style.display = 'block';
+        if (tabs[0]) tabs[0].classList.add('active');
+        loadAdminStats();
+        renderLeadsList();
+    }
 }
 
 function loadAdminStats() {
@@ -97,7 +90,6 @@ function loadAdminStats() {
         <div class="stat-card-admin"><div class="number">${total > 0 ? Math.round(processed / total * 100) : 0}%</div><div>Выполнено</div></div>
     `;
     
-    // Обновляем цифры на главной
     const heroOrders = document.getElementById('heroOrders');
     if (heroOrders) heroOrders.innerText = total;
 }
@@ -132,34 +124,6 @@ function markProcessed(id) {
     }
 }
 
-function saveSettings() {
-    const name = document.getElementById('companyName')?.value;
-    const desc = document.getElementById('companyDesc')?.value;
-    if (name) localStorage.setItem('companyName', name);
-    if (desc) localStorage.setItem('companyDesc', desc);
-    alert('Настройки сохранены!');
-}
-
-function switchAdminTab(tabName) {
-    const statsTab = document.getElementById('adminTabStats');
-    const settingsTab = document.getElementById('adminTabSettings');
-    const tabs = document.querySelectorAll('.admin-tab');
-    
-    if (tabName === 'stats') {
-        if (statsTab) statsTab.style.display = 'block';
-        if (settingsTab) settingsTab.style.display = 'none';
-        if (tabs[0]) tabs[0].classList.add('active');
-        if (tabs[1]) tabs[1].classList.remove('active');
-        loadAdminStats();
-        renderLeadsList();
-    } else if (tabName === 'settings') {
-        if (statsTab) statsTab.style.display = 'none';
-        if (settingsTab) settingsTab.style.display = 'block';
-        if (tabs[0]) tabs[0].classList.remove('active');
-        if (tabs[1]) tabs[1].classList.add('active');
-    }
-}
-
 // ========== КАЛЬКУЛЯТОР ==========
 function calculatePrice() {
     const roomType = document.getElementById('roomType')?.value;
@@ -187,7 +151,6 @@ function calculatePrice() {
     return price;
 }
 
-// Инициализация калькулятора
 function initCalculator() {
     const areaSlider = document.getElementById('area');
     if (areaSlider) {
@@ -207,7 +170,7 @@ function initCalculator() {
     calculatePrice();
 }
 
-// ========== ФОРМА ЗАЯВКИ (РАБОТАЕТ ДЛЯ ГОСТЕЙ) ==========
+// ========== ФОРМА ЗАЯВКИ ==========
 function openOrderForm() {
     const orderForm = document.querySelector('.order-form');
     if (orderForm) orderForm.scrollIntoView({ behavior: 'smooth' });
@@ -227,7 +190,6 @@ function openOrderFormWithMessage(message) {
     if (textarea) textarea.value = message;
 }
 
-// Обработка отправки формы (гость может отправлять)
 function initOrderForm() {
     const mainForm = document.getElementById('mainOrderForm');
     if (!mainForm) return;
@@ -245,7 +207,6 @@ function initOrderForm() {
             return;
         }
         
-        // Создаём новую заявку
         const newOrder = {
             id: Date.now(),
             name: name,
@@ -259,12 +220,10 @@ function initOrderForm() {
         orders.push(newOrder);
         localStorage.setItem('cleaningOrders', JSON.stringify(orders));
         
-        alert('✅ Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+        alert('✅ Спасибо! Ваша заявка отправлена. Мы свяжемся с вами.');
         
-        // Очищаем форму
         mainForm.reset();
         
-        // Обновляем админ-панель если открыта
         if (currentAdmin) {
             loadAdminStats();
             renderLeadsList();
@@ -298,7 +257,5 @@ document.addEventListener('DOMContentLoaded', function() {
     initCalculator();
     initOrderForm();
     loadAdminStats();
-    
-    // Показываем главную страницу по умолчанию
     showPage('main');
 });
