@@ -32,13 +32,13 @@ function showPage(page) {
     }
 }
 
-// ========== АДМИН-ПАНЕЛЬ ==========
+// ========== АДМИН-ПАНЕЛЬ (ИСПРАВЛЕННАЯ) ==========
 function loginToAdmin() {
     const username = document.getElementById('adminUsername').value;
     const password = document.getElementById('adminPassword').value;
     
-    if (username === ADMIN_USER.username && password === ADMIN_USER.password) {
-        currentAdmin = { username };
+    if (username === 'demo' && password === 'demo123') {
+        currentAdmin = { username: 'demo' };
         const overlay = document.getElementById('adminAuthOverlay');
         const panel = document.getElementById('adminPanelContent');
         if (overlay) overlay.style.display = 'none';
@@ -46,8 +46,23 @@ function loginToAdmin() {
         loadAdminStats();
         renderLeadsList();
     } else {
-        alert('Неверный логин или пароль!');
+        alert('❌ Неверный логин или пароль!');
     }
+}
+
+function closeAdminLogin() {
+    const overlay = document.getElementById('adminAuthOverlay');
+    if (overlay) overlay.style.display = 'flex';
+    showPage('main');
+}
+
+function logoutFromAdmin() {
+    currentAdmin = null;
+    const overlay = document.getElementById('adminAuthOverlay');
+    const panel = document.getElementById('adminPanelContent');
+    if (overlay) overlay.style.display = 'flex';
+    if (panel) panel.style.display = 'none';
+    showPage('main');
 }
 
 function closeAdminLogin() {
