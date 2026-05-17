@@ -197,15 +197,15 @@
             </section>
         </div>
 
-        <!-- АДМИН-ПАНЕЛЬ (с авторизацией) -->
+                <!-- АДМИН-ПАНЕЛЬ (с авторизацией) -->
         <div id="page-admin" style="display: none;">
             <div class="admin-auth-overlay" id="adminAuthOverlay">
                 <div class="admin-login-card">
                     <div class="auth-logo">🧹</div>
                     <h2>Вход в админ-панель</h2>
                     <p>Только для сотрудников</p>
-                    <input type="text" id="adminUsername" placeholder="Логин">
-                    <input type="password" id="adminPassword" placeholder="Пароль">
+                    <input type="text" id="adminUsername" placeholder="Логин" class="admin-input">
+                    <input type="password" id="adminPassword" placeholder="Пароль" class="admin-input">
                     <button class="btn-primary" onclick="loginToAdmin()">Войти</button>
                     <button class="btn-secondary" onclick="closeAdminLogin()">На главную</button>
                     <div class="demo-hint">demo / demo123</div>
@@ -226,11 +226,15 @@
                     <div class="leads-list" id="leadsList"></div>
                 </div>
                 <div id="adminTabSettings" class="admin-tab-content" style="display: none;">
-                    <div class="settings-card"><h3>О компании</h3><input type="text" id="companyName" placeholder="Название компании"><textarea id="companyDesc" placeholder="Описание"></textarea><button class="btn-primary" onclick="saveSettings()">Сохранить</button></div>
+                    <div class="settings-card">
+                        <h3>О компании</h3>
+                        <input type="text" id="companyName" placeholder="Название компании">
+                        <textarea id="companyDesc" placeholder="Описание"></textarea>
+                        <button class="btn-primary" onclick="saveSettings()">Сохранить</button>
+                    </div>
                 </div>
             </div>
         </div>
-
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
